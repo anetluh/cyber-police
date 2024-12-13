@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        .success{
+        color:green;
+        }
+        .error {
+            color:red;
+        }
+
+        body {
+            background-color: rgb(68, 96, 201);
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            justify-items: center;
+            font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";        }
+
+        .container{
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 95px;
+            width: 50%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        img{
+
+            height: 150px;
+            width: auto;
+        }
+
+        h3{
+
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .container input{
+
+            border-radius: 5px;
+            border: 1px solid black;
+            height: 30px;
+            width: 260px;
+            margin-bottom: 20px;
+        }
+
+        .container button{
+            background-color: rgb(68, 96, 201);
+            border-radius: 25px;
+            border: 0px solid black;
+            width: 100%;
+            height: 30px;
+            color: aliceblue;
+        }
+
+        .container form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+
+        }
+        a{
+            text-decoration: none;
+            color: rgb(68, 96, 201);
+            margin: 14px;
+
+        }
+
+
+        ::placeholder{
+            padding-left: 10px;
+            cursor: auto;
+        
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPWTaSfbcQ8WMC369XyK-Z5W33ftTG47GhNXjkQqLbsDH4BimlaHhwO3cKBHmH6GfFA7A&usqp=CAU">
+
+        <h3>Реєстрація</h3>
+        <form method="post" action="/register">
+            <input type="text" id="username" name="username" placeholder = "Логін" required>
+            <input type="password" id="password" name="password"  placeholder = "Пароль" required>
+            <button type="submit">Зарееєструватися</button>
+        </form>
+        <p><a href="/login">Увійти</a></p>
+        
+    <!-- Відображення повідомлень -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+        <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    </div>
+</body>
+</html>
